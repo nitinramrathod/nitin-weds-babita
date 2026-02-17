@@ -4,17 +4,39 @@ import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 
+type CountdownTime = {
+  days: number
+  hours: number
+  minutes: number
+  seconds: number
+}
+
+
 export default function Home() {
   const [selectedImage, setSelectedImage] = useState<string|null>(null)
 
+  const units: (keyof CountdownTime)[] = [
+  "days",
+  "hours",
+  "minutes",
+  "seconds",
+]
+
   const weddingDate = new Date("2026-03-08T13:30:00")
 
-const [timeLeft, setTimeLeft] = useState({})
+const [timeLeft, setTimeLeft] = useState<CountdownTime>({
+  days: 0,
+  hours: 0,
+  minutes: 0,
+  seconds: 0,
+})
 
 useEffect(() => {
   const timer = setInterval(() => {
     const now = new Date()
-    const difference = weddingDate - now
+    // const difference = weddingDate - now
+    const difference = weddingDate.getTime() - now.getTime()
+
 
     if (difference > 0) {
       setTimeLeft({
@@ -126,7 +148,7 @@ useEffect(() => {
 
   <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto px-6">
 
-    {["days", "hours", "minutes", "seconds"].map((unit, index) => (
+    {units.map((unit, index) => (
       <motion.div
         key={unit}
         initial={{ opacity: 0, scale: 0.8 }}
@@ -135,7 +157,8 @@ useEffect(() => {
         className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-white/20"
       >
         <motion.div
-          key={timeLeft[unit]}
+          // key={timeLeft[unit]}
+          key={unit}
           initial={{ y: -10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.3 }}
