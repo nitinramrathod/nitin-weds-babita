@@ -204,7 +204,7 @@ useEffect(() => {
         <motion.p 
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ delay: 0.3, duration: 1 }}
           className="mt-4 max-w-xl mx-auto">
           Jogeshwari Mata Mandir, Pahegaon, Tq.Jalna, Dist.Jalna, MH, 431203
         </motion.p>
@@ -277,9 +277,9 @@ useEffect(() => {
 
       {/* ================= IMAGE GALLERY SECTION ================= */}
       <section className="py-16 px-6 bg-white">
-        <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+        <motion.h2         
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="text-3xl md:text-4xl font-bold text-center text-rose-700"
         >
@@ -291,6 +291,9 @@ useEffect(() => {
             <motion.div
               key={index}
               whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}              
               className="cursor-pointer overflow-hidden rounded-xl shadow-md"
               onClick={() => setSelectedImage(img)}
             >
