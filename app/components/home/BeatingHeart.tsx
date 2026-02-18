@@ -14,7 +14,7 @@ export default function BeatingHeart() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="text-red-500 text-6xl"
+        className="text-orange-500 text-6xl"
       >
         ❤️
       </motion.div>
