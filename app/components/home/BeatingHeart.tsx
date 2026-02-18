@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function BeatingHeart() {
   return (
-    <div className="flex items-center justify-center h-screen bg-black">
+    <div className="flex items-center justify-center pt-5">
       <motion.div
         animate={{
           scale: [1, 1.2, 1],
@@ -14,7 +14,7 @@ export default function BeatingHeart() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="text-red-500 text-4xl"
+        className="text-red-500 text-6xl"
       >
         ❤️
       </motion.div>
