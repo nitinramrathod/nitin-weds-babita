@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "Nitin & Babita Wedding",
     images: [
       {
-        url: "/images/nitin-babita-2.jpg",
+        url: "https://nitin-weds-babita.vercel.app/images/nitin-babita-2.jpg",
         width: 1200,
         height: 630,
         alt: "Nitin and Babita Wedding",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Nitin ❤️ Babita Wedding",
     description:
       "Wedding Invitation | 08 March 2026 | 1:30 PM",
-    images: ["/images/nitin-babita-2.jpg"],
+    images: ["https://nitin-weds-babita.vercel.app/images/nitin-babita-2.jpg"],
   },
 }
 
