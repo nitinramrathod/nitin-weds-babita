@@ -22,6 +22,15 @@ export default function Home() {
   "seconds",
 ]
 
+  const engagementImages = [
+            "/images/nitin-babita-1.jpg",
+            "/images/nitin-babita-2.jpg",
+            "/images/nitin-babita-3.jpg",
+            "/images/nitin-babita-4.JPG",
+            "/images/nitin-babita-5.JPG",
+            "/images/nitin-babita-6.jpg",
+          ]
+
   const weddingDate = new Date("2026-03-08T13:30:00")
 
 const [timeLeft, setTimeLeft] = useState<CountdownTime>({
@@ -55,7 +64,6 @@ useEffect(() => {
     <main className="bg-gradient-to-b from-rose-100 to-orange-50 text-gray-800">
 
       {/* ================= LANDING SECTION ================= */}
-      {/* ================= ROYAL LANDING SECTION ================= */}
       <section className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
 
         {/* Background Image */}
@@ -123,7 +131,7 @@ useEffect(() => {
             transition={{ delay: 1.6, duration: 1 }}
             className="mt-6 text-lg text-yellow-300"
           >
-            08 March 2026 • Jalna
+            Sunday, 08 March 2026 • Jalna
           </motion.p>
 
         </div>
@@ -143,7 +151,7 @@ useEffect(() => {
   </motion.h2>
 
   <p className="mb-10 text-lg tracking-wide">
-    08 March 2026 • 1:30 PM
+    08 March 2026 • 01:30 PM
   </p>
 
   <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto px-6">
@@ -190,7 +198,7 @@ useEffect(() => {
         </motion.h2>
 
         <p className="mt-4 max-w-xl mx-auto">
-          Jogeshwari Mata Mandir, Pahegaon, Tq.Jalna, Dist.Jalna
+          Jogeshwari Mata Mandir, Pahegaon, Tq.Jalna, Dist.Jalna, MH, 431203
         </p>
 
         <div className="mt-6">
@@ -221,22 +229,22 @@ useEffect(() => {
             {
               title: "Haldi Ceremony",
               time: "07 March 2026 – 05:00 PM",
-              location: "Bride's Home"
+              location: "Groom's Home - Mathtanda, Jalna, MH"
             },
             {
               title: "DJ & Sangeet",
               time: "07 March 2026 – 07:00 PM",
-              location: "Royal Palace Banquet"
+              location: "Groom's Home - Mathtanda, Jalna, MH"
             },
             {
               title: "Wedding Ceremony",
               time: "08 December 2026 – 01:30 PM",
-              location: "Royal Palace Banquet"
+              location: "Bride's Home - Pahegaon, Jalna, MH"
             },
             {
               title: "Reception",
               time: "08 March 2026 – 04:00 PM",
-              location: "Royal Palace Banquet"
+              location: "Bride's Home - Pahegaon, Jalna, MH"
             }
           ].map((event, index) => (
             <motion.div
@@ -271,14 +279,7 @@ useEffect(() => {
         </motion.h2>
 
         <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-          {[
-            "/images/nitin-babita-1.jpg",
-            "/images/nitin-babita-2.jpg",
-            "/images/nitin-babita-3.jpg",
-            "/images/nitin-babita-4.JPG",
-            "/images/nitin-babita-5.JPG",
-            "/images/nitin-babita-6.jpg",
-          ].map((img, index) => (
+          {engagementImages.map((img, index) => (
             <motion.div
               key={index}
               whileHover={{ scale: 1.05 }}
@@ -311,7 +312,7 @@ useEffect(() => {
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
               transition={{ duration: 0.3 }}
-              className="relative max-w-3xl w-full bg-red-200"
+              className="relative max-w-3xl w-full bg-red-200/10 backdrop-blur-md"
             >
               <Image
                 src={selectedImage}
