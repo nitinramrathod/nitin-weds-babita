@@ -26,12 +26,12 @@ export default function Home() {
   ]
 
   const engagementImages = [
-    "/images/nitin-babita-1.jpg",
-    "/images/nitin-babita-2.jpg",
-    "/images/nitin-babita-3.jpg",
-    "/images/nitin-babita-4.JPG",
-    "/images/nitin-babita-5.JPG",
     "/images/nitin-babita-6.jpg",
+    "/images/nitin-babita-7.jpg",
+    "/images/nitin-babita-9.jpg",
+    "/images/nitin-babita-3.jpg",
+    "/images/nitin-babita-8.JPG",
+    "/images/nitin-babita-5.JPG",
   ]
 
   const weddingDate = new Date("2026-03-08T13:31:00")
@@ -193,7 +193,7 @@ export default function Home() {
 
         <div className="absolute inset-0">
           <Image
-            src="/images/weding-stage.webp"   // your romantic couple image
+            src="/images/wedding-stage.webp"   // your romantic couple image
             alt="Wedding Backdrop"
             fill
             priority
