@@ -61,7 +61,7 @@ useEffect(() => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/nitin-babita-4.jpg"   // your romantic couple image
+            src="/images/nitin-babita-4.JPG"   // your romantic couple image
             alt="Wedding Backdrop"
             fill
             priority
@@ -274,8 +274,8 @@ useEffect(() => {
           {[
             "/images/nitin-babita-1.jpg",
             "/images/nitin-babita-2.jpg",
-            "/images/nitin-babita-3.jpg",
-            "/images/nitin-babita-4.jpg",
+            "/images/nitin-babita-3.JPG",
+            "/images/nitin-babita-4.JPG",
             "/images/nitin-babita-5.jpg",
             "/images/nitin-babita-6.jpg",
           ].map((img, index) => (
