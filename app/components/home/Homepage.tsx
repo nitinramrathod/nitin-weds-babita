@@ -3,7 +3,6 @@
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { useState, useEffect } from "react"
-import BeatingHeart from "./BeatingHeart";
 import ContactSection from "./Contact";
 
 
@@ -27,10 +26,10 @@ export default function Home() {
 
   const engagementImages = [
     "/images/nitin-babita-6.jpg",
-    "/images/nitin-babita-7.jpg",
+    "/images/nitin-babita-7.JPG",
     "/images/nitin-babita-9.jpg",
     "/images/nitin-babita-3.jpg",
-    "/images/nitin-babita-8.JPG",
+    "/images/nitin-babita-8.jpg",
     "/images/nitin-babita-5.JPG",
   ]
 
