@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import BeatingHeart from "./BeatingHeart";
+import ContactSection from "./Contact";
 
 
 type CountdownTime = {
@@ -15,55 +16,53 @@ type CountdownTime = {
 
 
 export default function Home() {
-  const [selectedImage, setSelectedImage] = useState<string|null>(null)
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   const units: (keyof CountdownTime)[] = [
-  "days",
-  "hours",
-  "minutes",
-  "seconds",
-]
+    "days",
+    "hours",
+    "minutes",
+    "seconds",
+  ]
 
   const engagementImages = [
-            "/images/nitin-babita-1.jpg",
-            "/images/nitin-babita-2.jpg",
-            "/images/nitin-babita-3.jpg",
-            "/images/nitin-babita-4.JPG",
-            "/images/nitin-babita-5.JPG",
-            "/images/nitin-babita-6.jpg",
-          ]
+    "/images/nitin-babita-1.jpg",
+    "/images/nitin-babita-2.jpg",
+    "/images/nitin-babita-3.jpg",
+    "/images/nitin-babita-4.JPG",
+    "/images/nitin-babita-5.JPG",
+    "/images/nitin-babita-6.jpg",
+  ]
 
-  const weddingDate = new Date("2026-03-08T13:30:00")
+  const weddingDate = new Date("2026-03-08T13:31:00")
 
-const [timeLeft, setTimeLeft] = useState<CountdownTime>({
-  days: 0,
-  hours: 0,
-  minutes: 0,
-  seconds: 0,
-})
+  const [timeLeft, setTimeLeft] = useState<CountdownTime>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  })
 
-useEffect(() => {
-  const timer = setInterval(() => {
-    const now = new Date()
-    // const difference = weddingDate - now
-    const difference = weddingDate.getTime() - now.getTime()
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date()
+      const difference = weddingDate.getTime() - now.getTime()
 
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60),
+        })
+      }
+    }, 1000)
 
-    if (difference > 0) {
-      setTimeLeft({
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-      })
-    }
-  }, 1000)
-
-  return () => clearInterval(timer)
-}, [])
+    return () => clearInterval(timer)
+  }, [])
 
   return (
-    <main className="bg-gradient-to-b from-rose-100 to-orange-50 text-gray-800">
+    <main className="bg-gradient-to-b from-rose-100 to-orange-50 text-gray-800 overflow-hidden">
 
       {/* ================= LANDING SECTION ================= */}
       <section className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
@@ -104,9 +103,25 @@ useEffect(() => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 1 }}
-            className="mt-8 text-4xl md:text-6xl font-bold text-yellow-400 drop-shadow-lg"
+            className="mt-8 text-4xl md:text-6xl font-bold text-yellow-400 drop-shadow-lg flex items-center gap-x-2"
           >
-            Nitin <span className="text-white">&</span> Babita
+            Nitin <span className="text-white">
+
+              <motion.div
+                animate={{
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 0.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="text-orange-500 text-3xl"
+              >
+                ❤️
+              </motion.div>
+
+            </span> Babita
           </motion.h1>
 
           <motion.p
@@ -140,54 +155,6 @@ useEffect(() => {
       </section>
 
 
-      {/* ================= COUNTDOWN SECTION ================= */}
-<section className="py-20 bg-gradient-to-r from-rose-700 via-red-600 to-orange-600 text-white text-center relative overflow-hidden">
-
-  <motion.h2
-    initial={{ opacity: 0, y: -20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1 }}
-    className="text-3xl md:text-5xl font-bold mb-4"
-  >
-    Countdown To Our Wedding
-  </motion.h2>
-
-  <p className="mb-10 text-lg tracking-wide">
-    08 March 2026 • 01:30 PM
-  </p>
-
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto px-6">
-
-    {units.map((unit, index) => (
-      <motion.div
-        key={unit}
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ delay: index * 0.2 }}
-        className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-white/20"
-      >
-        <motion.div
-          // key={timeLeft[unit]}
-          key={unit}
-          initial={{ y: -10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          className="text-3xl md:text-5xl font-bold text-yellow-300"
-        >
-          {timeLeft[unit] || 0}
-        </motion.div>
-
-        <p className="mt-2 uppercase tracking-widest text-sm">
-          {unit}
-        </p>
-      </motion.div>
-    ))}
-
-  </div>
-
-  <BeatingHeart/>
-
-</section>
 
 
       {/* ================= LOCATION SECTION ================= */}
@@ -201,7 +168,7 @@ useEffect(() => {
           Wedding Location
         </motion.h2>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 1 }}
@@ -217,6 +184,66 @@ useEffect(() => {
             className="min-w-80 w-full h-74 rounded-xl shadow-md"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </section>
+
+      
+      {/* ================= COUNTDOWN SECTION ================= */}
+      <section className="py-20 bg-gradient-to-r relative from-rose-700 via-red-600 to-orange-600 text-white text-center relative overflow-hidden">
+
+        <div className="absolute inset-0">
+          <Image
+            src="/images/weding-stage.webp"   // your romantic couple image
+            alt="Wedding Backdrop"
+            fill
+            priority
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+        <div className="relative z-10">
+
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-3xl md:text-5xl font-bold mb-4 "
+          >
+            Countdown To Our Wedding
+          </motion.h2>
+
+          <p className="mb-10 text-lg tracking-wide">
+            08 March 2026 • 01:31 PM
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto px-6">
+
+          {units.map((unit, index) => (
+            <motion.div
+              key={unit}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.2 }}
+              className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-white/20"
+            >
+              <motion.div
+                // key={timeLeft[unit]}
+                key={unit}
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className="text-3xl md:text-5xl font-bold text-yellow-300"
+              >
+                {timeLeft[unit] || 0}
+              </motion.div>
+
+              <p className="mt-2 uppercase tracking-widest text-sm">
+                {unit}
+              </p>
+            </motion.div>
+          ))}
+
         </div>
       </section>
 
@@ -246,7 +273,7 @@ useEffect(() => {
             },
             {
               title: "Wedding Ceremony",
-              time: "08 December 2026 – 01:30 PM",
+              time: "08 December 2026 – 01:31 PM",
               location: "Bride's Home - Pahegaon, Jalna, MH"
             },
             {
@@ -277,7 +304,7 @@ useEffect(() => {
 
       {/* ================= IMAGE GALLERY SECTION ================= */}
       <section className="py-16 px-6 bg-white">
-        <motion.h2         
+        <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -291,9 +318,9 @@ useEffect(() => {
             <motion.div
               key={index}
               whileHover={{ scale: 1.05 }}
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}              
+              initial={{ opacity: 0, scale: .7 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
               className="cursor-pointer overflow-hidden rounded-xl shadow-md"
               onClick={() => setSelectedImage(img)}
             >
@@ -335,7 +362,7 @@ useEffect(() => {
 
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute top-3 right-3 bg-white text-black px-3 py-1 rounded-full"
+                className="w-[3rem] h-[3rem] absolute bottom-[-4rem] right-[45%] bg-white text-black rounded-full"
               >
                 ✕
               </button>
@@ -344,10 +371,11 @@ useEffect(() => {
         )}
       </AnimatePresence>
 
+      <ContactSection></ContactSection>
 
 
       {/* ================= FOOTER ================= */}
-      <footer className="py-8 text-center bg-rose-700 text-white">
+      <footer className="py-8 text-center bg-black text-white">
         <p>With love, Nitin & Babita ❤️</p>
       </footer>
 
