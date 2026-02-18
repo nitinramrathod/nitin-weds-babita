@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "Indian wedding invitation",
     "08 March 2026 wedding",
     "Nitin weds Babita",
-    "Mumbai wedding",
+    "Jalna wedding",
   ],
   authors: [{ name: "Nitin Rathod" }],
   openGraph: {
