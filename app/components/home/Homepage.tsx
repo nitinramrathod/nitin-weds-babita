@@ -3,6 +3,8 @@
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { useState, useEffect } from "react"
+import BeatingHeart from "./BeatingHeart";
+
 
 type CountdownTime = {
   days: number
@@ -182,6 +184,8 @@ useEffect(() => {
     ))}
 
   </div>
+
+  <BeatingHeart/>
 
 </section>
 
