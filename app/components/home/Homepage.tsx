@@ -189,17 +189,21 @@ useEffect(() => {
       {/* ================= LOCATION SECTION ================= */}
       <section className="py-16 px-6 bg-white text-center">
         <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="text-3xl md:text-4xl font-bold text-rose-700"
         >
           Wedding Location
         </motion.h2>
 
-        <p className="mt-4 max-w-xl mx-auto">
+        <motion.p 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="mt-4 max-w-xl mx-auto">
           Jogeshwari Mata Mandir, Pahegaon, Tq.Jalna, Dist.Jalna, MH, 431203
-        </p>
+        </motion.p>
 
         <div className="mt-6">
 
@@ -215,8 +219,8 @@ useEffect(() => {
       {/* ================= TIMELINE SECTION ================= */}
       <section className="py-16 px-6 bg-rose-50">
         <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="text-3xl md:text-4xl font-bold text-center text-rose-700"
         >
