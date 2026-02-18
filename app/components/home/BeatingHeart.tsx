@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function BeatingHeart() {
   return (
-    <div className="flex items-center justify-center pt-5">
+    <div className="flex items-center justify-center pt-14">
       <motion.div
         animate={{
           scale: [1, 1.2, 1],
