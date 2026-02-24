@@ -272,7 +272,7 @@ export default function Home() {
             },
             {
               title: "Wedding Ceremony",
-              time: "08 December 2026 – 01:31 PM",
+              time: "08 March 2026 – 01:31 PM",
               location: "Bride's Home - Pahegaon, Jalna, MH"
             },
             {
